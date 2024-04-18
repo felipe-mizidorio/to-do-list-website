@@ -22,3 +22,35 @@
 .form-container div{
     margin-bottom: 15px;
 }
+.form-container div:last-child{
+    display: flex;
+    justify-content: center;
+}
+.form-container button{
+    background-color: rgb(48, 48, 48);
+    color: white;
+    justify-self: center;
+    font-size: 20px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(75, 72, 72);
+}
+
+.register-page button{
+    background-color: rgb(48, 48, 48);
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
