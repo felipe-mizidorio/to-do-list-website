@@ -26,16 +26,34 @@
 // window.location.assign('index.html'); navegação (consegue voltar e avancar no browser)
 // window.location.replace('index.html'); substitui a página atual pela nova (não consegue voltar no browser)
 // para login é melhor replace
+// qual a diferença do var e do let no javascript?
+// var é global e let é local
+// e const?
+// const é uma constante, não pode ser alterada
+
+// json.stringify objeto para texto
+// json.parse texto para obj
+
+// set cria vetor
+// map cria um objeto chave valor
 
 document.getElementById('send').addEventListener('click', function(event) {
     event.preventDefault();
     sendForm();
 });
-localStorage.setItem('username', 'john');
-localStorage.setItem('password', '1234');
-value = localStorage.getItem('keepLogged');
 
-if(value === 'true'){
+localStorage.getItem('jucinaldo') ? null:
+localStorage.setItem('jucinaldo', '{"username": "jucinaldo", "password": "123", "tarefas": []}');
+
+localStorage.getItem('joao') ? null:
+localStorage.setItem('joao', '{"username": "joao", "password": "123", "tarefas": []}');
+
+localStorage.getItem('maria') ? null:
+localStorage.setItem('maria', '{"username": "maria", "password": "123", "tarefas": []}');
+
+value = JSON.parse(localStorage.getItem('keepLogged'));
+
+if(value === true){
     window.location.replace('index.html');
 }
 
@@ -45,16 +63,16 @@ function sendForm() {
     let password = document.getElementById('password').value;
     let keepLogged = document.getElementById('connected').checked;
 
-    if (username === localStorage.getItem('username') && password === localStorage.getItem('password')) {
-        if(keepLogged){
-            localStorage.setItem('keepLogged', 'true');
-        }
-        alert('Login successful');
-        // Redirect to another page
-        window.location.replace('index.html');
-    }
-    else {
-        alert('Login failed');
-    }
+    let user = localStorage.getItem(username);
 
+    if(user === null){
+        alert('Usuário não encontrado');
+        return;
+    }else if (JSON.parse(user).password == password){
+        localStorage.setItem('keepLogged', JSON.stringify(keepLogged));
+        window.location.replace('index.html');
+        localStorage.setItem('userLogged', username);
+    }else{
+        alert('Senha incorreta');
+    }
 }       
