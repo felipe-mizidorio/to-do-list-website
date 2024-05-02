@@ -37,21 +37,27 @@
 // set cria vetor
 // map cria um objeto chave valor
 
+import { user } from './user.js';
+
 document.getElementById('send').addEventListener('click', function(event) {
     event.preventDefault();
     sendForm();
 });
 
+let jucinaldo = new user('jucinaldo', '123', []);
+let joao = new user('joao', '111222', []);
+let maria = new user('maria', '2323', []);
+
 localStorage.getItem('jucinaldo') ? null:
-localStorage.setItem('jucinaldo', '{"username": "jucinaldo", "password": "123", "tarefas": []}');
+localStorage.setItem('jucinaldo', JSON.stringify(jucinaldo));
 
 localStorage.getItem('joao') ? null:
-localStorage.setItem('joao', '{"username": "joao", "password": "123", "tarefas": []}');
+localStorage.setItem('joao', JSON.stringify(joao));
 
 localStorage.getItem('maria') ? null:
-localStorage.setItem('maria', '{"username": "maria", "password": "123", "tarefas": []}');
+localStorage.setItem('maria', JSON.stringify(maria));
 
-value = JSON.parse(localStorage.getItem('keepLogged'));
+let value = JSON.parse(localStorage.getItem('keepLogged'));
 
 if(value === true){
     window.location.replace('index.html');
@@ -68,7 +74,7 @@ function sendForm() {
     if(user === null){
         alert('Usuário não encontrado');
         return;
-    }else if (JSON.parse(user).password == password){
+    }else if (JSON.parse(user).senha == password){
         localStorage.setItem('keepLogged', JSON.stringify(keepLogged));
         window.location.replace('index.html');
         localStorage.setItem('userLogged', username);

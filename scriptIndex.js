@@ -1,3 +1,6 @@
+import { user } from './user.js';
+import { note } from './note.js';
+
 document.getElementById('exit').addEventListener('click', function(event) {
     localStorage.setItem('keepLogged', 'false');
     window.location.replace('login.html');
@@ -6,45 +9,38 @@ document.getElementById('exit').addEventListener('click', function(event) {
 
 document.getElementById('form1').addEventListener('submit', adicionarTarefa);
 const userData = JSON.parse(localStorage.getItem(localStorage.getItem('userLogged')));
-const tarefas = []
+const notesList = []
 const tabela = document.getElementById('table1');
-const tarefasSalvas = userData.tarefas;
+const tarefasSalvas = userData.notes;
 if(tarefasSalvas){
     tarefasSalvas.map(linhaTarefa => {
         renderizarListas(linhaTarefa);
-        tarefas.push(linhaTarefa);
+        notesList.push(linhaTarefa);
     });
 }
 
 function adicionarTarefa(e) {
     e.preventDefault();
     let nomeLista = e.target.elements.nameList.value;
-    let dataCriacao = new Date();
-    let dataFormated = dataCriacao.toLocaleDateString('pt-BR');
     let uuid = self.crypto.randomUUID();
 
-    const tarefa = {
-        nomeLista: nomeLista,
-        dataCriacao: dataFormated,
-        uuid: uuid
-    }
-    tarefas.push(tarefa);
-    userData.tarefas = tarefas;
-    console.log(userData.tarefas);
-    console.log(userData);
+    let newNote = new note(nomeLista, uuid); 
+
+    notesList.push(newNote);
+    userData.notes = notesList;
     saveData();
-    renderizarListas(tarefa);
+    renderizarListas(newNote);
 }
 
-function renderizarListas(tarefa){
+function renderizarListas(notesList){
     let tr = document.createElement('tr');
     let td1 = document.createElement('td');
     let td2 = document.createElement('td');
     let td3 = document.createElement('td');
     let td4 = document.createElement('td');
-    td1.innerHTML = tarefa.uuid;
-    td2.innerHTML = tarefa.nomeLista;
-    td3.innerHTML = tarefa.dataCriacao;
+    td1.textContent = notesList.uuid;
+    td2.textContent = notesList.titulo;
+    td3.textContent = notesList.dataCriacao;
 
     tr.appendChild(td1);
     tr.appendChild(td2);
