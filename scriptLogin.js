@@ -60,7 +60,7 @@ localStorage.setItem('maria', JSON.stringify(maria));
 let value = JSON.parse(localStorage.getItem('keepLogged'));
 
 if(value === true){
-    window.location.replace('index.html');
+    window.location.replace('list.html');
 }
 
 function sendForm() {
@@ -76,7 +76,7 @@ function sendForm() {
         return;
     }else if (JSON.parse(user).senha == password){
         localStorage.setItem('keepLogged', JSON.stringify(keepLogged));
-        window.location.replace('index.html');
+        window.location.replace('list.html');
         localStorage.setItem('userLogged', username);
     }else{
         alert('Senha incorreta');

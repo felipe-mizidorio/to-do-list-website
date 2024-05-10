@@ -2,6 +2,7 @@ import { user } from './user.js';
 import { note } from './note.js';
 
 document.getElementById('exit').addEventListener('click', function(event) {
+    event.preventDefault();
     localStorage.setItem('keepLogged', 'false');
     window.location.replace('login.html');
     localStorage.removeItem('userLogged');

@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav_bar.css">
 </head>
+
 <body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <h1>TDL</h1>
+            </a>
+            <a href="">null</a>
+            <a href="">null</a>
+            <a href="">null</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
     <main class="form-container">
         <form action="">
-                <h2>LOGIN</h2>
-                <div class="field">
-                    <!-- <label for="username">Nome </label> -->
-                    <input type="text" id="username" required placeholder="Nome">
-                </div>
-                <div class="field">
-                    <!-- <label for="password">Senha </label> -->
-                    <input type="password" id="password" required placeholder="Senha">
-                </div>
-                <div>
-                    <label for="connected">Permanecer Conectado</label>
-                    <input type="checkbox" id="connected">
-                </div>
-                <div>
-                    <input class="btn-submit" type="submit" value="OK" id="send">
-                </div>
+            <h2>LOGIN</h2>
+            <div class="field">
+                <!-- <label for="username">Nome </label> -->
+                <input type="text" id="username" required placeholder="Nome">
+            </div>
+            <div class="field">
+                <!-- <label for="password">Senha </label> -->
+                <input type="password" id="password" required placeholder="Senha">
+            </div>
+            <div class="btn-submit">
+                <input type="submit" value="OK" id="send">
+            </div>
+            <div>
+                <input type="checkbox" id="connected">
+                <label for="connected">Permanecer Conectado</label>
+            </div>
         </form>
     </main>
     <script type="module" src="scriptLogin.js"></script>
 </body>
+
 </html>
