@@ -50,6 +50,7 @@ function adicionarTarefa(e) {
 function editarTarefa(event) {
     // Adicione um evento de clique a cada botão de edição
     const trPai = event.target.closest('tr');
+    const primeiroFilho = trPai.firstElementChild;
     const segundaColuna = trPai.children[1];
     const input = document.createElement('input');
     input.value = segundaColuna.textContent;
@@ -64,7 +65,8 @@ function editarTarefa(event) {
                     item.titulo = input.value;
                 }
                 return item;
-            });
+            }
+            );
             userData.notes = notesList;
             saveData();
         }
