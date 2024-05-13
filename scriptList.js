@@ -41,6 +41,10 @@ function adicionarTarefa(e) {
     userData.notes = notesList;
     saveData();
     renderizarListas(newNote);
+    const botoesEdit = document.querySelectorAll('.btn-edit');
+    botoesEdit.forEach(botaoEdit => {
+    botaoEdit.addEventListener('click', editarTarefa);
+    });
     const botoesDelete = document.querySelectorAll('.btn-delete');
     botoesDelete.forEach(botaoDelete => {
     botaoDelete.addEventListener('click', excluirTarefa);
