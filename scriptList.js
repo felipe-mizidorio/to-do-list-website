@@ -20,6 +20,11 @@ if(tarefasSalvas){
     });
 }
 
+const botoesEdit = document.querySelectorAll('.btn-edit');
+botoesEdit.forEach(botaoEdit => {
+    botaoEdit.addEventListener('click', editarTarefa);
+    });
+
 const botoesDelete = document.querySelectorAll('.btn-delete');
 botoesDelete.forEach(botaoDelete => {
     botaoDelete.addEventListener('click', excluirTarefa);
@@ -39,6 +44,42 @@ function adicionarTarefa(e) {
     const botoesDelete = document.querySelectorAll('.btn-delete');
     botoesDelete.forEach(botaoDelete => {
     botaoDelete.addEventListener('click', excluirTarefa);
+    });
+}
+
+function editarTarefa(event) {
+    // Adicione um evento de clique a cada botão de edição
+    const trPai = event.target.closest('tr');
+    const segundaColuna = trPai.children[1];
+    const input = document.createElement('input');
+    input.value = segundaColuna.textContent;
+    segundaColuna.textContent = '';
+    segundaColuna.appendChild(input);
+    // ao clicar enter, salvar a edição
+    input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            segundaColuna.textContent = input.value;
+            notesList = notesList.map(item => {
+                if(item.uuid === primeiroFilho.textContent){
+                    item.titulo = input.value;
+                }
+                return item;
+            });
+            userData.notes = notesList;
+            saveData();
+        }
+    });
+    // ao clicar fora, salvar a edição
+    input.addEventListener('blur', function() {
+        segundaColuna.textContent = input.value;
+        notesList = notesList.map(item => {
+            if(item.uuid === primeiroFilho.textContent){
+                item.titulo = input.value;
+            }
+            return item;
+        });
+        userData.notes = notesList;
+        saveData();
     });
 }
 
