@@ -75,3 +75,7 @@
     cursor: pointer;
     background: #005e91;
   }
+
+  #form1 h2{
+    text-align: center;
+  }

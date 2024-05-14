@@ -25,10 +25,16 @@ for (let i = 0; i < userData.notes.length; i++) {
     if (note.uuid === listId) {
         // Se corresponder, faça algo aqui, como imprimir uma mensagem
         index = i;
+
         // Se quiser parar de iterar após encontrar uma correspondência, você pode usar break
         // break;
     }
 }
+
+const form1 = document.getElementById('form1');
+const h2Title = document.createElement('h2');
+h2Title.textContent = `LISTA ${userData.notes[index].titulo}`;
+form1.insertAdjacentElement('beforebegin', h2Title);
 
 const tarefasSalvas = userData.notes[index].items;
 if(tarefasSalvas){
