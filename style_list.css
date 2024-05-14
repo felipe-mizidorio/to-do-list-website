@@ -24,6 +24,23 @@ main{
   padding: 10px;
 }
 
+#adicionar{
+  background-color: #0255d1;
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+#adicionar:hover{
+  opacity: 0.6;
+}
+
 .fields label{
   margin: 10px;
   padding: 10px;

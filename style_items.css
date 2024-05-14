@@ -21,6 +21,12 @@
     color: white;
     padding: 10px 20px;
     border-radius: 10px;
+    opacity: 1;
+    transition: 0.3s;
+  }
+
+  main a:hover{
+    opacity: 0.6;
   }
   
   .fields{
@@ -30,6 +36,23 @@
     justify-content: center;
     margin-top: 20px;
     padding: 10px;
+  }
+
+  #adicionar{
+    background-color: #0255d1;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 1;
+    transition: 0.3s;
+  }
+  
+  #adicionar:hover{
+    opacity: 0.6;
   }
   
   .fields label{
@@ -52,9 +75,12 @@
     max-width: fit-content;
     margin: 0 auto;
     padding: 10px;
-    background: #005e91;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,99,255,1) 0%, rgba(9,81,121,1) 100%);
     text-align: center;
     margin-bottom: 20px;
+    border-radius: 10px;
+    border: 3px black solid;
   }
   
   .tabelas td, .tabelas tr {
@@ -73,7 +99,7 @@
   .btn-delete, .btn-edit{
     border: none;
     cursor: pointer;
-    background: #005e91;
+    background-color: transparent;
   }
 
   #form1 h2{
