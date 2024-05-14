@@ -40,6 +40,7 @@ main{
 }
 
 .tabelas {
+  overflow-y: auto;
   max-width: fit-content;
   margin: 0 auto;
   padding: 10px;
@@ -61,7 +62,7 @@ main{
   width: 80vw;
 }
 
-.btn-delete, .btn-edit{
+.btn-delete, .btn-edit, .btn-item{
   border: none;
   cursor: pointer;
   background: #005e91;

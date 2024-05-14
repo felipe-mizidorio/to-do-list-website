@@ -9,7 +9,7 @@ function sendForm() {
 
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
-    let newuser = new user(username, password, []);
+    let newuser = new user(username, password, [], []);
     localStorage.setItem(username, JSON.stringify(newuser));
     window.location.replace('login.html');
 }       

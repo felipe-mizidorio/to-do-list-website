@@ -44,9 +44,9 @@ document.getElementById('send').addEventListener('click', function(event) {
     sendForm();
 });
 
-let jucinaldo = new user('jucinaldo', '123', []);
-let joao = new user('joao', '111222', []);
-let maria = new user('maria', '2323', []);
+let jucinaldo = new user('jucinaldo', '123', [], []);
+let joao = new user('joao', '111222', [], []);
+let maria = new user('maria', '2323', [], []);
 
 localStorage.getItem('jucinaldo') ? null:
 localStorage.setItem('jucinaldo', JSON.stringify(jucinaldo));
