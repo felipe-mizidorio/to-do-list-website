@@ -1,0 +1,17 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #e3f2fd;
+    /* background-image: linear-gradient(to right, #42a5f5 -20%, #90caf9); */
+    height: 8vh;
+    position: relative;
+    z-index: 1;
+    font-size: large;
+}
+
+nav a{
+    color: #0288d1;
+    text-decoration: none;
+    font-size: large;
+}
